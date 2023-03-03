@@ -1,0 +1,87 @@
+/*
+
+RETORNA UN ARRAY DESDE UN OBJETO DE CLASE
+
+Para devolver un array desde una clase, necesitamos una clase ArrayReturningClass y una función dentro de ella createNewArray, que devuelva un array, el tipo de retorno en nuestro caso es int. En createNewArray, creamos un nuevo array y lo inicializamos con algunos valores enteros. Por último, lo devolvemos con return newArray.
+
+Creamos un objeto de la clase ArrayReturningClass y accedemos a la función createNewArray(). Ahora tenemos el array devuelto en returnedArray que podemos convertir en una String usando Arrays.toString().
+
+*/
+import java.util.Arrays;
+
+public class ReturnAnArray {
+    public static void main(String[] args) {
+
+        ArrayReturningClass arrayReturningClass = new ArrayReturningClass();
+
+        int[] returnedArray = arrayReturningClass.createNewArray();
+        String intArrayAsString = Arrays.toString(returnedArray);
+
+        System.out.println(intArrayAsString);
+    }
+}
+
+class ArrayReturningClass {
+    public int[] createNewArray() {
+        int[] newArray = {10, 20, 40, 50};
+
+        return newArray;
+    }
+}
+
+
+
+// Producción:
+
+// [10, 20, 40, 50]
+
+
+/* RETORNA UN ARRAY DESDE UN METODO
+
+Retorna un array de diferentes tipos de datos desde una función en Java
+Podemos inicializar un array con los elementos para devolverlos desde la función. En el siguiente ejemplo, tenemos cuatro funciones con diferentes tipos de retorno como int, double, String y boolean. Inicializamos un nuevo array para devolverlo con la función. Para crear un nuevo array, utilizamos la palabra clave new y el tipo de datos del array.
+
+El new int[] crea un nuevo array de enteros con los elementos y lo mismo ocurre con otros tipos de datos. Ahora tenemos que recibir el valor devuelto en un String para imprimirlo en la salida. Para ello, utilizamos Arrays.toString() que toma un array como único argumento y convierte el array en una cadena.
+import java.util.Arrays;
+
+*/
+public class ReturnAnArray {
+    public static void main(String[] args) {
+
+        String intArrayAsString = Arrays.toString(returnArrayInt());
+        String doubleArrayAsString = Arrays.toString(returnArrayDouble());
+        String arrayAsString = Arrays.toString(returnArrayString());
+        String booleanAsString = Arrays.toString(returnArrayBoolean());
+
+        System.out.println("Returned Integer Array: " + intArrayAsString);
+        System.out.println("Returned Double Array: " + doubleArrayAsString);
+        System.out.println("Returned String Array: " + arrayAsString);
+        System.out.println("Returned Boolean Array: " + booleanAsString);
+    }
+
+    static int[] returnArrayInt() {
+        return new int[]{1, 3, 6, 8, 10};
+    }
+
+    static double[] returnArrayDouble() {
+        return new double[]{1.0, 2.4, 5.7};
+    }
+
+    static String[] returnArrayString() {
+        return new String[]{"One", "Two", "Three", "Four"};
+    }
+
+    static boolean[] returnArrayBoolean() {
+        return new boolean[]{true, false, true, false};
+    }
+}
+
+/*
+Producción:
+
+Returned Integer Array: [1, 3, 6, 8, 10]
+Returned Double Array: [1.0, 2.4, 5.7]
+Returned String Array: [One, Two, Three, Four]
+Returned Boolean Array: [true, false, true, false]
+
+*/
